@@ -1,8 +1,6 @@
 import { publicClient } from './client.js'
 import { generatePrivateKey, privateKeyToAccount } from 'viem/accounts'
-import { wethAbi } from './abis.js'
-import { uniswapAbi } from './abi.js'
-import { ercAbi } from './abierc.js'
+import { wethAbi, uniswapAbi } from './abis.js'
 import { account, goerliClient } from './client.js'
 
 
@@ -38,7 +36,7 @@ async function transferWeth() {
   const { request } = await publicClient.simulateContract({
     account,
     address: '0xB4FBF271143F4FBf7B91A5ded31805e42b2208d6',
-    abi: ercAbi,
+    abi: wethAbi,
     functionName: 'transfer',
     args: ['0x4eed9Ce331948932b3Df2817abcFA6F29B043868',10000000000000000n],
   })
